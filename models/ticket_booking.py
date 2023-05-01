@@ -25,3 +25,6 @@ class TicketBooking(models.Model):
     a_time = fields.Datetime(related="flight_id.a_time")
     duration = fields.Float(related="flight_id.duration")
 
+    seat_id = fields.Many2one("seat.types")
+    ticket_type = fields.Selection(related="seat_id.ticket")
+    available_tickets = fields.Integer(related="seat_id.available_tickets")

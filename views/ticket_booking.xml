@@ -17,15 +17,20 @@
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="passport_id"/>
-                <field name="dob"/>
-                <field name="gender"/>
+                <field name="d_airport" string="Departure Airport"/>
+                <field name="d_time" string="Departure Time"/>
+                <field name="a_airport" string="Arrival Airport"/>
+                <field name="a_time" string="Arrival Time"/>
+                <field name="ticket_type"/>
             </tree>
         </field>
     </record>
 
+    <!-- Search View  -->
+    
+
 
     <!-- Form View  -->
-
     <record id="ticket_booking_view_form" model="ir.ui.view">
         <field name="name">ticket.booking.form</field>
         <field name="model">ticket.booking</field>
@@ -61,6 +66,9 @@
                                     <field name="a_airport" string="Arival Airport"/>
                                     <field name="a_time" string="Arival Time"/>
                                     <field name="duration" string="Duration"/>
+                                    <field name="seat_id" string="Seat ID"/>
+                                    <field name="available_tickets" string="Remaining Seats"/>
+                                    <field name="ticket_type" string="Ticket Type"/>
                                 </group>
                             </group>
                         </page>
