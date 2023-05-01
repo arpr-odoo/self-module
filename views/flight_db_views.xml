@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="flight_db_action" model="ir.actions.act_window">
+        <field name="name">Flights</field>
+        <field name="res_model">flight.db</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+
+
+     <!-- Form View  -->
+
+    <record id="flight_db__view_form" model="ir.ui.view">
+        <field name="name">flight.db.form</field>
+        <field name="model">flight.db</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="flight_id" string="Flight ID"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="d_airport" string="Departure Airport"/>
+                            <field name="d_time" string="Departure Time"/>
+                        </group>
+                        <group>
+                            <field name="a_airport" string="Arival Airport"/>
+                            <field name="a_time" string="Arival Time"/>
+                        </group>
+                        <field name="duration" string="Duration"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View  -->
+
+    <record id="flight_db_view_tree" model="ir.ui.view">
+        <field name="name">flight.db.tree</field>
+        <field name="model">flight.db</field>
+        <field name="arch" type="xml">
+            <tree string="List">
+                <field name="d_airport" string="Departure Airport"/>
+                <field name="d_time" string="Departure Time"/>
+                <field name="a_airport" string="Arival Airport"/>
+                <field name="a_time" string="Arival Time"/>
+                <field name="duration" string="Duration"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban View  -->
+
+    <record id="flight_db_view_kanban" model="ir.ui.view">
+        <field name="name">flight.db.kanban</field>
+        <field name="model">flight.db</field>
+        <field name="arch" type="xml">
+            <kanban string="kanban">
+                <field name="d_airport"/>
+                <field name="a_airport"/>
+            </kanban>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="ticket_booking_menu_root" name="Flight Booking">
+
+        <menuitem id="ticket_booking_menu" name="Customers">
+            <menuitem id="ticket_booking_menu_action" action="ticket_booking_action"/>
+        </menuitem>
+
+        <menuitem id="flight_db_menu" name="Flights">
+            <menuitem id="flight_db_menu_action" action="flight_db_action"/>
+        </menuitem>
+        
+    </menuitem>
+</odoo>

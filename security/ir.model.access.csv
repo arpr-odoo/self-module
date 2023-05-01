@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+Flight_Ticket_Booking_System.access_ticket_booking,access_ticket_booking,Flight_Ticket_Booking_System.model_ticket_booking,base.group_user,1,1,1,1
+Flight_Ticket_Booking_System.access_flight_db,access_flight_db,Flight_Ticket_Booking_System.model_flight_db,base.group_user,1,1,1,1
