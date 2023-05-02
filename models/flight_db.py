@@ -17,9 +17,11 @@ class FlightDB(models.Model):
     @api.depends("d_time","a_time")
     def _compute_duration(self):
         for record in self:
-        # if(self):
-            # print("it works")
-            diff = record.a_time - record.d_time
-            days,seconds = diff.days, diff.seconds
-            travel_hours = days*24 + seconds/3600
-            record.duration = travel_hours
+            if(record.a_time and record.d_time):
+                diff = record.a_time - record.d_time
+                print(diff.days)
+                days,seconds = diff.days, diff.seconds
+                travel_hours = days*24 + seconds/3600
+                record.duration = travel_hours
+            else:
+                record.duration = 0

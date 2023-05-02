@@ -66,10 +66,15 @@
                                     <field name="a_airport" string="Arival Airport"/>
                                     <field name="a_time" string="Arival Time"/>
                                     <field name="duration" string="Duration"/>
-                                    <field name="seat_id" string="Seat ID"/>
-                                    <field name="available_tickets" string="Remaining Seats"/>
-                                    <field name="ticket_type" string="Ticket Type"/>
                                 </group>
+                            </group>
+                        </page>
+
+                        <page string="Ticket Details">
+                            <group>
+                                <field name="seat_id" string="Seat ID"/>
+                                <field name="ticket_type" string="Ticket Type"/>
+                                <field name="available_tickets" string="Remaining Seats"/>
                             </group>
                         </page>
                     </notebook>
