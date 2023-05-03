@@ -12,7 +12,7 @@ class FlightDB(models.Model):
     a_time = fields.Datetime()
     duration = fields.Float(compute="_compute_duration")
     
-
+    _sql_constraints = [('unique_flight_id','unique(flight_id)','Flight ID must be Unique...')]
     
     @api.depends("d_time","a_time")
     def _compute_duration(self):

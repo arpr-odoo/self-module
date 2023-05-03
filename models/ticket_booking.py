@@ -1,5 +1,5 @@
 from . import flight_db
-from odoo import api, models,fields
+from odoo import api, exceptions, models,fields
 
 
 class TicketBooking(models.Model):
@@ -8,15 +8,13 @@ class TicketBooking(models.Model):
     _description = "Data of Customer which have booked ticket"
 
     name = fields.Char(required=True)
-    phone = fields.Integer(required=True)
+    phone = fields.Char(required=True)
     email = fields.Char()
     dob = fields.Date(string="Date of Birth")
     gender = fields.Selection(string="Gender",selection=[('m','Male'),('f','Female'),('o','Others')])
     passport_id = fields.Char(string="Passport Number", required=True)
     address = fields.Text()
     status = fields.Selection(string="Status",selection=states,default=states[0][0])
-
-    # TODO:  make relation of this model to flight_db,seat type, flight type
 
     flight_id = fields.Many2one("flight.db")
     d_airport = fields.Char(related="flight_id.d_airport")
@@ -28,3 +26,16 @@ class TicketBooking(models.Model):
     seat_id = fields.Many2one("seat.types")
     ticket_type = fields.Selection(related="seat_id.ticket")
     available_tickets = fields.Integer(related="seat_id.available_tickets")
+
+    _sql_constraints = [('unique_passport_id','unique(passport_id)','Passport ID must be unique...')]
+
+    def confirm_action(self):
+        if(self.status=='cancel'):
+            raise exceptions.UserError("Canceled Ticket can't Buy again...")
+        else:
+            self.status = 'confirm'
+        return True
+
+    def cancel_action(self):
+        self.status = 'cancel'
+        return True
