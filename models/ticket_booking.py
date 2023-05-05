@@ -1,4 +1,3 @@
-from . import flight_db
 from odoo import api, exceptions, models,fields
 
 
@@ -16,16 +15,12 @@ class TicketBooking(models.Model):
     address = fields.Text()
     status = fields.Selection(string="Status",selection=states,default=states[0][0])
 
-    flight_id = fields.Many2one("flight.db")
-    d_airport = fields.Char(related="flight_id.d_airport")
-    d_time = fields.Datetime(related="flight_id.d_time")
-    a_airport = fields.Char(related="flight_id.a_airport")
-    a_time = fields.Datetime(related="flight_id.a_time")
-    duration = fields.Float(related="flight_id.duration")
-
-    seat_id = fields.Many2one("seat.types")
-    ticket_type = fields.Selection(related="seat_id.ticket")
-    available_tickets = fields.Integer(related="seat_id.available_tickets")
+    flight_data = fields.Many2one("flight.db")
+    d_airport = fields.Char(related="flight_data.d_airport")
+    d_time = fields.Datetime(related="flight_data.d_time")
+    a_airport = fields.Char(related="flight_data.a_airport")
+    a_time = fields.Datetime(related="flight_data.a_time")
+    duration = fields.Float(related="flight_data.duration")
 
     _sql_constraints = [('unique_passport_id','unique(passport_id)','Passport ID must be unique...')]
 

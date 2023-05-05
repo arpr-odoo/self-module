@@ -21,7 +21,6 @@
                 <field name="d_time" string="Departure Time"/>
                 <field name="a_airport" string="Arrival Airport"/>
                 <field name="a_time" string="Arrival Time"/>
-                <field name="ticket_type"/>
             </tree>
         </field>
     </record>
@@ -62,7 +61,7 @@
                         <page string="Flight Details">
                             <group>
                                 <group>
-                                    <field name="flight_id" string="Flight ID"/>
+                                    <field name="flight_data" string="Flight"/>
                                     <field name="d_airport" string="Departure Airport"/>
                                     <field name="d_time" string="Departure Time"/>
                                 </group>
@@ -76,9 +75,9 @@
 
                         <page string="Ticket Details">
                             <group>
-                                <field name="seat_id" string="Seat ID"/>
-                                <field name="ticket_type" string="Ticket Type"/>
-                                <field name="available_tickets" string="Remaining Seats"/>
+                                <!-- <field name="seat_id" string="Seat ID"/> -->
+                                <!-- <field name="ticket_type" string="Ticket Type"/>
+                                <field name="available_tickets" string="Remaining Seats"/> -->
                             </group>
                         </page>
                     </notebook>
