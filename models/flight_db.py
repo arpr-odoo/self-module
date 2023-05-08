@@ -13,6 +13,7 @@ class FlightDB(models.Model):
     a_airport = fields.Char()
     a_time = fields.Datetime()
     duration = fields.Float(compute="_compute_duration")
+    
 
     _sql_constraints = [('unique_flight_id','unique(flight_id)','Flight ID must be Unique...')]
     

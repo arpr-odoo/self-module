@@ -9,6 +9,7 @@
         <menuitem id="flight_db_menu" name="Flights">
             <menuitem id="flight_db_menu_action" action="flight_db_action"/>
             <menuitem id="seat_types_menu_action" action="seat_types_action"/>
+            <menuitem id="ticket_inventory_menu_action" action="ticket_inventory_action"/>
         </menuitem>
         
     </menuitem>

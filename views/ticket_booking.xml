@@ -13,7 +13,7 @@
         <field name="name">ticket.booking.tree</field>
         <field name="model">ticket.booking</field>
         <field name="arch" type="xml">
-            <tree string="List">
+            <tree string="List" decoration-danger="status=='cancel'" decoration-success="status=='confirm'">
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="passport_id"/>
@@ -21,13 +21,36 @@
                 <field name="d_time" string="Departure Time"/>
                 <field name="a_airport" string="Arrival Airport"/>
                 <field name="a_time" string="Arrival Time"/>
+                <field name="status" optional="True"/>
             </tree>
         </field>
     </record>
 
     <!-- Search View  -->
     
+    <record id="ticket_booking_search" model="ir.ui.view">
+        <field name="name">ticket.booking.search</field>
+        <field name="model">ticket.booking</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="passport_id"/>
+                <separator/>
 
+                <filter name="status" domain="[('status','=','confirm')]" string="Confirmed" />    
+                <filter name="status" domain="[('status','=','cancel')]" string="Canceled" />
+
+                <group string="Group by">
+                    <filter name="status" string="Status" context="{'group_by':'status'}"/>
+                </group>
+                <group string="Group by">
+                    <filter name="gender" string="Gender" context="{'group_by':'gender'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
     <!-- Form View  -->
     <record id="ticket_booking_view_form" model="ir.ui.view">
@@ -75,9 +98,9 @@
 
                         <page string="Ticket Details">
                             <group>
-                                <!-- <field name="seat_id" string="Seat ID"/> -->
-                                <!-- <field name="ticket_type" string="Ticket Type"/>
-                                <field name="available_tickets" string="Remaining Seats"/> -->
+                                <field name="ticket_inventory_id" string="Ticket Type"/>
+                                <field name="price" string="price"/>
+                                <field name="quantity" string="Available"/>
                             </group>
                         </page>
                     </notebook>

@@ -12,6 +12,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/seat_types_view.xml',
+        'views/ticket_inventory_view.xml',
         'views/flight_db_views.xml',
         'views/ticket_booking.xml',
         'views/ticket_menus.xml',

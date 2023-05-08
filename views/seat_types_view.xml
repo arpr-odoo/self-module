@@ -13,8 +13,6 @@
         <field name="arch" type="xml">
             <tree string="List">
                 <field name="name" string="Ticket Type"/>
-                <field name="price"/>
-                <field name="available_tickets"/>
             </tree>
         </field>
     </record>
@@ -28,9 +26,7 @@
                 <sheet>
                     <group>
                         <field name="name" string="Ticket"/>
-                        <!-- <field name="ticket" string="Type of Ticket"/> -->
-                        <field name="price" string="Price"/>
-                        <field name="available_tickets" string="Remaining Tickets"/>
+                        <field name="description" string="Description"/>
                     </group>
                 </sheet>
             </form>
