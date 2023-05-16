@@ -17,6 +17,8 @@ class TicketBooking(models.Model):
     address = fields.Text()
     status = fields.Selection(string="Status",selection=states,default=states[0][0])
 
+
+    # getting flight details from flight_db model
     flight_data = fields.Many2one("flight.db")
     flight_id = fields.Char(related="flight_data.flight_id")
     d_airport = fields.Char(related="flight_data.d_airport")
@@ -25,28 +27,28 @@ class TicketBooking(models.Model):
     a_time = fields.Datetime(related="flight_data.a_time")
     duration = fields.Float(related="flight_data.duration")
 
-    ticket_data = fields.Many2one("seat.types")
-    # ticket_id = fields.Char(compute="generateTicket")
-    ticket_type_id = fields.Char(related="ticket_data.name")
-
+    # getting ticket details from ticket_inventory
     ticket_inventory_id = fields.Many2one('ticket.inventory', string='Ticket Inventory')
     price = fields.Float(related="ticket_inventory_id.price")
     quantity = fields.Integer(related="ticket_inventory_id.quantity")
+    # tickets = fields.Integer(compute="_compute_ticket_quantity")
 
     _sql_constraints = [('unique_passport_id','unique(passport_id)','Passport ID must be unique...')]
 
 
-    @api.depends("ticket_data")
-    def generateTicket(self):
-        if(self.ticket_data):
-            self.ticket_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k = 10))
-        else:
-            self.ticket_id = ""
-
+    # @api.depends("status")
+    # def _compute_ticket_quantity(self):
+    #     self.tickets = self.ticket_inventory_id.quantity
+    #     if(self.status=='cancel'):
+    #         self.ticket_inventory_id.quantity += 1
+        
+        
     def confirm_action(self):
         if(self.status=='cancel'):
-            raise exceptions.UserError("Canceled Ticket can't Buy again...")
+            self.ticket_inventory_id.quantity += 1
+            self.status = 'confirm'
         else:
+            self.ticket_inventory_id.quantity -= 1
             self.status = 'confirm'
         return True
 
