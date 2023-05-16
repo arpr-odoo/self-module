@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Demo Data for Ticket Booking Model -->
+    <record id="demo_ticket_booking1" model="ticket.booking">
+        <field name="name">Hiten Khatri</field>
+        <field name="phone">781327412</field>
+        <field name="email">hiten@khatri.com</field>
+        <field name="dob">2002-02-01</field>
+        <field name="gender">m</field>
+        <field name="passport_id">GJ24207</field>
+        <field name="address">Gujrat India</field>
+        <field name="status">confirm</field>
+    </record>
+    <record id="demo_ticket_booking2" model="ticket.booking">
+        <field name="name">Vipul Parmar</field>
+        <field name="phone">2589452845</field>
+        <field name="email">vipul@parmar.com</field>
+        <field name="dob">2001-12-12</field>
+        <field name="gender">m</field>
+        <field name="passport_id">GJ24202</field>
+        <field name="address">Gujarat India</field>
+        <field name="status">new</field>
+    </record>
+    <record id="demo_ticket_booking3" model="ticket.booking">
+        <field name="name">Dhrupal Prajapti</field>
+        <field name="phone">481741234</field>
+        <field name="email">dhrupal@prajpapati.com</field>
+        <field name="dob">1999-02-02</field>
+        <field name="gender">m</field>
+        <field name="passport_id">GJ24REG</field>
+        <field name="address">Gujarat India</field>
+        <field name="status">cancel</field>
+    </record>
+
+
+    <!-- Demo Data for Flights Database-->
+    <record id="demo_flight_db1" model="flight.db">
+        <field name="name">Ahmedabad To Bengaluru</field>
+        <field name="flight_id">AHBE342</field>
+        <field name="d_airport">Ahmedabad</field>
+        <field name="d_time">2023-06-01 18:00:00</field>
+        <field name="a_airport">Bengaluru</field>
+        <field name="a_time">2023-06-01 22:30:00</field>
+    </record>
+    <record id="demo_flight_db2" model="flight.db">
+        <field name="name">Bengaluru To Ahmedabad</field>
+        <field name="flight_id">BEAH342</field>
+        <field name="d_airport">Bengaluru</field>
+        <field name="d_time">2023-06-02 18:30:00</field>
+        <field name="a_airport">Ahmedabad</field>
+        <field name="a_time">2023-06-02 23:30:00</field>
+    </record>
+    <!-- Demo Data for Seat Types-->
+
+    <record id="demo_seat_types1" model="seat.types">
+        <field name="name">Gold</field>
+        <field name="description">For the VIP Customers</field>
+    </record>
+    <record id="demo_seat_types2" model="seat.types">
+        <field name="name">Silver</field>
+        <field name="description">For Important Customers</field>
+    </record>
+    <record id="demo_seat_types3" model="seat.types">
+        <field name="name">Bronze</field>
+        <field name="description">For Other Customers</field>
+    </record>
+    <!-- Demo Data for Ticket Inventory-->
+
+    <record id="demo_ticket_inventory1" model="ticket.inventory">
+        <field name="price">15000.0</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="demo_ticket_inventory2" model="ticket.inventory">
+        <field name="price">10000.0</field>
+        <field name="quantity">20</field>
+    </record>
+    <record id="demo_ticket_inventory3" model="ticket.inventory">
+        <field name="price">5000.0</field>
+        <field name="quantity">50</field>
+    </record>
+
+    
+    <!-- Demo Data for -->
+</odoo>

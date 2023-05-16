@@ -31,27 +31,27 @@ class TicketBooking(models.Model):
     ticket_inventory_id = fields.Many2one('ticket.inventory', string='Ticket Inventory')
     price = fields.Float(related="ticket_inventory_id.price")
     quantity = fields.Integer(related="ticket_inventory_id.quantity")
-    # tickets = fields.Integer(compute="_compute_ticket_quantity")
-
     _sql_constraints = [('unique_passport_id','unique(passport_id)','Passport ID must be unique...')]
-
-
-    # @api.depends("status")
-    # def _compute_ticket_quantity(self):
-    #     self.tickets = self.ticket_inventory_id.quantity
-    #     if(self.status=='cancel'):
-    #         self.ticket_inventory_id.quantity += 1
         
         
     def confirm_action(self):
-        if(self.status=='cancel'):
-            self.ticket_inventory_id.quantity += 1
-            self.status = 'confirm'
-        else:
-            self.ticket_inventory_id.quantity -= 1
-            self.status = 'confirm'
+        self.ticket_inventory_id.quantity -= 1
+        self.status = 'confirm'
+        # print(self.ticket_inventory_id.name.id)
+        print(self.ticket_inventory_id.flight_id['name'])
+        print()
+        print(self.flight_data['name'])
+        # for record in self.flight_data:
+        #     print(record['name'])
         return True
 
     def cancel_action(self):
+        self.ticket_inventory_id.quantity += 1
         self.status = 'cancel'
         return True
+    
+
+    # for getting ticket types corrensponding to the flight
+    @api.depends("")
+    def get_ticket_types(self):
+        pass

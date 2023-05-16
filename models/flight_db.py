@@ -7,6 +7,7 @@ class FlightDB(models.Model):
 
     ticket_ids = fields.One2many("ticket.booking","flight_data")
     name = fields.Char()
+    # tickets_types = fields.One2many("ticket.inventory","flight_id")
     flight_id = fields.Char()
     d_airport = fields.Char()
     d_time = fields.Datetime()

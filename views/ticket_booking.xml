@@ -61,7 +61,7 @@
             <form>
                 <header>
                     <button name="confirm_action" type="object" string="CONFIRM" attrs="{'invisible':[('status','=','confirm')]}"/>
-                    <button name="cancel_action" type="object" string="CANCEL"/>
+                    <button name="cancel_action" type="object" string="CANCEL" attrs="{'invisible':[('status','in',('cancel','new'))]}"/>
                 </header>
                 <sheet>
                     <h1>
@@ -102,7 +102,6 @@
                                 <field name="ticket_inventory_id" string="Ticket Type"/>
                                 <field name="price" string="price"/>
                                 <field name="quantity" string="Available"/>
-                                <!-- <field name="tickets" string="remain"/> -->
                             </group>
                         </page>
                     </notebook>

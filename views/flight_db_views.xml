@@ -32,9 +32,7 @@
                             <field name="a_time" string="Arival Time"/>
                         </group>
                         <!-- <group>
-                            <field name="ticket_type" />
-                            <field name="price" />
-                            <field name="quantity" />
+                            <field name="tickets_types" />
                         </group> -->
                     </group>
                     <notebook>

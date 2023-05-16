@@ -18,7 +18,7 @@
         'views/ticket_menus.xml',
     ],
     # data files containing optionally loaded demonstration data
-    # 'demo': [
-    #     'demo/demo_data.xml',
-    # ],
+    'demo': [
+        'demo/demo_FTBS_data.xml',
+    ],
 }
