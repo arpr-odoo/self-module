@@ -1,5 +1,3 @@
-import random
-import string
 from odoo import api, exceptions, models,fields
 
 
@@ -41,8 +39,6 @@ class TicketBooking(models.Model):
         print(self.ticket_inventory_id.flight_id['name'])
         print()
         print(self.flight_data['name'])
-        # for record in self.flight_data:
-        #     print(record['name'])
         return True
 
     def cancel_action(self):
@@ -50,6 +46,15 @@ class TicketBooking(models.Model):
         self.status = 'cancel'
         return True
     
+
+    # @api.constrains("status")
+    # def _check_flight_data(self):
+    #     if(self.d_airport is not None):
+    #         print("Checking Constrains....")
+    #     else:
+    #         raise exceptions.ValidationError("First Select Flight Before Confirming it....")
+
+
 
     # for getting ticket types corrensponding to the flight
     @api.depends("")
