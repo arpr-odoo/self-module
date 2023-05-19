@@ -1,7 +1,7 @@
 {
     'name': "Flight Ticket Booking System",
     'version': '1.0',
-    'depends': ['base'],
+    'depends': ['base','mail'],
     'author': "Arth Prajapati",
     'category': 'Ticket Booking',
     'description': """
