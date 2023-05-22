@@ -26,7 +26,13 @@
         <field name="model">ticket.inventory</field>
         <field name="arch" type="xml">
             <form>
+            
                 <sheet>
+                    <div name="button_box">
+                        <button class="oe_stat_button" name="tickets_of_flight_action" type="object" icon="fa-money">
+                            <field name="seat_count" widget="statinfo" string="Seats"/>
+                        </button>
+                    </div>
                     <group>
                         <field name="name" />
                         <field name="flight_id" />

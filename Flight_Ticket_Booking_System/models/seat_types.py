@@ -7,4 +7,4 @@ class SeatTypes(models.Model):
 
     name = fields.Char(required=True)
     description = fields.Char()
-    # seat_inventories = fields.One2many('ticket.inventory', 'name', string='Ticket Inventories')
+

@@ -24,6 +24,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+
                     <group>
                         <field name="name" string="Ticket"/>
                         <field name="description" string="Description"/>

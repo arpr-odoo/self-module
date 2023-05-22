@@ -3,13 +3,12 @@
     <record id="ticket_booking_action" model="ir.actions.act_window">
         <field name="name">Book a Ticket</field>
         <field name="res_model">ticket.booking</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
         <field name="context">{'search_default_status_new':True}</field>
     </record>
 
 
     <!-- Tree View  -->
-
     <record id="ticket_booking_view_tree" model="ir.ui.view">
         <field name="name">ticket.booking.tree</field>
         <field name="model">ticket.booking</field>
@@ -28,7 +27,6 @@
     </record>
 
     <!-- Search View  -->
-    
     <record id="ticket_booking_search" model="ir.ui.view">
         <field name="name">ticket.booking.search</field>
         <field name="model">ticket.booking</field>
@@ -118,5 +116,51 @@
     </record>
 
 
+    <!-- Kanban View  -->
+    <record id="ticket_booking_kanban" model="ir.ui.view">
+        <field name="name">ticket.booking.kanban</field>
+        <field name="model">ticket.booking</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <field name="status"></field>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a class="dropdown-toggle o-no-caret btn" role="button" data-bs-toggle="dropdown" data-bs-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable"><a role="menuitem" type="edit" class="dropdown-item">Edit</a></t>
+                                        <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                </div>
+                        
+
+
+
+
+                            <div>
+                                <field name="passport_id" style="font-weight:bold;font-size:1.5rem"></field>
+                            </div>
+                            <div>
+                                <field name="name"></field>
+                            </div>
+                            <div>
+                                <field name="d_airport"></field>
+                                <span> To </span>
+                                <field name="a_airport"></field>
+                            </div>
+                            <div>
+                                <field name="ticket_inventory_id"></field>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
 
 </odoo>
