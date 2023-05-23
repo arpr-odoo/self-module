@@ -15,7 +15,7 @@ class TicketBooking(models.Model):
     passport_id = fields.Char(string="Passport Number", required=True,tracking=True)
     address = fields.Text()
     status = fields.Selection(string="Status",selection=states,default=states[0][0],tracking=True)
-
+    color = fields.Integer()
 
     # getting flight details from flight_db model
     flight_data = fields.Many2one("flight.db",required=True)
